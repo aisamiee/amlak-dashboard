@@ -1,0 +1,16 @@
+# local environment
+.venv/
+__pycache__/
+.DS_Store
+# secrets: site password + salt (never commit)
+.secrets/
+# private data and analysis (scraped pages, valuations, bid caps, notes) — published only encrypted in docs/
+data/
+output/
+app/data.json
+app/state/
+app/img/
+HANDOFF.md
+# build artefacts
+tools/ocr
+tools/tessdata/

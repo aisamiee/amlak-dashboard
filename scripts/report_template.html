@@ -1,0 +1,413 @@
+<title>مزایدهٔ املاک رضوی ۱۴۰۵</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Vazirmatn:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: a valuation dossier — narrow reading column for findings, full-width scroll panes for the ledgers. */
+:root{
+  --paper:#f3f6f4; --card:#ffffff; --ink:#14231e; --muted:#5a6b64; --line:#d7e0db; --soft:#e9efeb;
+  --brand:#0e5a46; --brand-ink:#ffffff; --brass:#9a6f22; --good:#17784a; --warn:#9a5d07; --bad:#b0362a;
+  --good-bg:#e3f2ea; --warn-bg:#fbf0dc; --bad-bg:#f8e4e1; --chart1:#0e5a46; --chart2:#9a6f22;
+  --f-display:"Reem Kufi","Vazirmatn",Tahoma,sans-serif; --f-body:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0c1412; --card:#121d1a; --ink:#e3ece8; --muted:#93a59d; --line:#24342f; --soft:#18251f;
+  --brand:#46b893; --brand-ink:#06120e; --brass:#d3a650; --good:#4fc68b; --warn:#e3a547; --bad:#ef7d6e;
+  --good-bg:#11291e; --warn-bg:#2b2112; --bad-bg:#2e1714; --chart1:#46b893; --chart2:#d3a650; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0c1412; --card:#121d1a; --ink:#e3ece8; --muted:#93a59d; --line:#24342f; --soft:#18251f;
+  --brand:#46b893; --brand-ink:#06120e; --brass:#d3a650; --good:#4fc68b; --warn:#e3a547; --bad:#ef7d6e;
+  --good-bg:#11291e; --warn-bg:#2b2112; --bad-bg:#2e1714; --chart1:#46b893; --chart2:#d3a650; color-scheme:dark}
+*{box-sizing:border-box}
+html{direction:rtl}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.85;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:18px;padding-block:0 64px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:1.65rem;margin-block:0 6px;color:var(--brand)}
+h3{font-size:1.12rem;margin-block:18px 6px}
+p{margin:0 0 10px;max-width:72ch}
+a{color:var(--brand)}
+.num,td,th{font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+/* hero */
+.hero{border-bottom:1px solid var(--line);padding-block:34px 22px;margin-bottom:8px}
+.eyebrow{font-size:.8rem;letter-spacing:.06em;color:var(--brass);font-weight:700}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);color:var(--ink);margin-top:6px}
+.hero .lede{font-size:1.04rem;color:var(--muted);margin-top:10px;max-width:80ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi b{display:block;font-size:1.55rem;font-weight:800;color:var(--brand);line-height:1.3}
+.kpi span{font-size:.82rem;color:var(--muted)}
+/* toc */
+.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  display:flex;gap:4px;overflow-x:auto;padding-block:8px;scrollbar-width:thin}
+.toc a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px;font-size:.86rem}
+.toc a:hover,.toc a:focus-visible{background:var(--soft);color:var(--ink);outline:none}
+section{padding-block:34px 6px;border-bottom:1px solid var(--line)}
+section>.intro{color:var(--muted);margin-bottom:14px}
+/* verdict cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:14px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.vcard h3{margin-top:0;font-size:1.05rem}
+.vcard .tag{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px;margin-bottom:8px}
+.tag.good{background:var(--good-bg);color:var(--good)} .tag.warn{background:var(--warn-bg);color:var(--warn)} .tag.bad{background:var(--bad-bg);color:var(--bad)}
+.vcard dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:8px 0 0;font-size:.9rem}
+.vcard dt{color:var(--muted)} .vcard dd{margin:0;font-weight:500}
+.vcard p{font-size:.92rem}
+ul.insights{padding-inline-start:20px;margin:6px 0 0}
+ul.insights li{margin-bottom:8px;max-width:95ch}
+/* tables */
+.pane{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card);margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;vertical-align:top}
+th{position:sticky;top:0;background:var(--soft);font-weight:700;font-size:.8rem;color:var(--muted);cursor:default}
+th.sort{cursor:pointer} th.sort:hover{color:var(--ink)}
+tbody tr:hover td{background:var(--soft)}
+td.wrap{white-space:normal;min-width:220px}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.76rem;font-weight:700}
+.pill.good{background:var(--good-bg);color:var(--good)} .pill.warn{background:var(--warn-bg);color:var(--warn)} .pill.bad{background:var(--bad-bg);color:var(--bad)} .pill.neu{background:var(--soft);color:var(--muted)}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+.scorebar{display:inline-block;width:56px;height:6px;border-radius:3px;background:var(--soft);vertical-align:middle;margin-inline-start:6px;overflow:hidden}
+.scorebar i{display:block;height:100%;background:var(--brand)}
+tr.lot{cursor:pointer}
+tr.sel td{background:var(--soft);box-shadow:inset 0 -2px 0 var(--brand)}
+.lotdetail{background:var(--card);border:1px solid var(--brand);border-radius:12px;padding:16px;margin-top:12px;scroll-margin-top:70px}
+.lotdetail .head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:10px}
+.lotdetail .head h3{margin:0}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.dgrid h4{margin:0 0 4px;font-size:.9rem;color:var(--brand)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:.84rem}
+.kv span:nth-child(odd){color:var(--muted)}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:5px 10px;text-decoration:none;cursor:pointer}
+.btn:hover,.btn:focus-visible{border-color:var(--brand);outline:none}
+.btn[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+/* charts */
+.multiples{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.mchart{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
+.mchart h4{margin:0;font-size:.88rem}
+.mchart .delta{font-size:.8rem}
+svg text{fill:var(--muted);font-family:var(--f-body);font-size:10px}
+.chartbox{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:12px;overflow-x:auto}
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.filters input,.filters select{font:inherit;font-size:.86rem;padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);min-width:0}
+.filters input{flex:1 1 220px}
+.formula{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:.9rem}
+.formula code{font-family:var(--f-body);background:var(--soft);padding:1px 6px;border-radius:5px}
+.note{border-inline-start:3px solid var(--brass);padding:6px 12px;background:var(--card);border-radius:6px;margin:12px 0;font-size:.9rem;max-width:95ch}
+footer{color:var(--muted);font-size:.82rem;padding-block:24px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:560px){body{font-size:14px}.kpi b{font-size:1.3rem}h2{font-size:1.35rem}}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">معاونت بهره‌وری املاک و اراضی آستان قدس رضوی — amlak.razavi.ir</div>
+  <h1>مزایدهٔ املاک رضوی ۱۴۰۵</h1>
+  <p class="lede">تحلیل کامل ۲۶ مرحلهٔ هفتگی مزایده (۱۶ فروردین تا ۱۲ مهر ۱۴۰۵): ردیابی تک‌تک قطعه‌های مسکونی مشهد و حومه، تاریخچهٔ قیمت و فروش، و ارزش‌گذاری ساخت با فرض مشارکت در ساخت ۶۰٪ سازنده و ۴۰٪ صاحب زمین بر اساس ضوابط و کروکی هر قطعه. همهٔ مبالغ به تومان و به قیمت مهر ۱۴۰۵ است.</p>
+  <div class="kpis" id="kpis"></div>
+</header>
+
+<nav class="toc" aria-label="فهرست">
+  <a href="#verdict">حکم نهایی</a><a href="#ranking">رتبه‌بندی قطعه‌های فعال</a><a href="#partnership">مدل مشارکت ۶۰/۴۰</a>
+  <a href="#history">تاریخچهٔ مراحل</a><a href="#trends">روند قیمت</a><a href="#locations">محله‌ها</a>
+  <a href="#gone">قطعه‌های ازدست‌رفته</a><a href="#suburbs">حومهٔ مشهد</a><a href="#explorer">همهٔ قطعه‌ها</a><a href="#method">روش و منابع</a>
+</nav>
+
+<section id="verdict">
+  <h2>حکم نهایی</h2>
+  <p class="intro">از ۵۵ قطعهٔ در حال عرضه در مرحلهٔ ۲۶، فقط یک گروه هم برای سازنده و هم برای صاحب زمین در مشارکت ۶۰/۴۰ توجیه دارد. چند قطعه زیر قیمت بازار زمین‌اند، ولی ساختشان سود ندارد. بقیه را نخرید.</p>
+  <!--__VERDICT__-->
+</section>
+
+<section id="ranking">
+  <h2>رتبه‌بندی قطعه‌های فعال مرحلهٔ ۲۶</h2>
+  <p class="intro">روی هر ردیف بزنید تا برنامهٔ ساخت، هزینه‌ها، سهم مشارکت و سناریوها باز شود. امتیاز ترکیبی است: ۳۰٪ بازده صاحب زمین، ۲۰٪ سود سازنده، ۲۰٪ تخفیف نسبت به بازار زمین، ۱۵٪ قیمت آپارتمان منطقه و ۱۵٪ مقاومت در سناریوی بدبینانه.</p>
+  <div class="filters"><button class="btn" aria-pressed="true" data-scope="city">مشهد</button><button class="btn" aria-pressed="false" data-scope="sub">حومه</button><button class="btn" aria-pressed="false" data-scope="all">همه</button></div>
+  <div class="pane" style="max-height:620px"><table id="rankTable"><thead></thead><tbody></tbody></table></div>
+  <div id="lotDetail" class="lotdetail" hidden></div>
+</section>
+
+<section id="partnership">
+  <h2>مدل مشارکت ۶۰/۴۰ چگونه حساب شد</h2>
+  <p class="intro">برای هر قطعه، اول برنامهٔ فیزیکی ساخت را از روی کروکی و ضوابط تراکم مشهد می‌سازیم. بعد ارزش واحدهای ساخته‌شده را تقسیم می‌کنیم.</p>
+  <div class="formula" id="formulaBox"></div>
+  <div class="note" id="installNote"></div>
+</section>
+
+<section id="history">
+  <h2>تاریخچهٔ ۲۶ مرحله</h2>
+  <p class="intro">هر مرحله یک یکشنبه برگزار شده است. ستون «قطعهٔ تازه» تعداد قطعه‌های مسکونی یا حومه‌ای است که اولین بار در آن مرحله عرضه شده‌اند. «فروش» یعنی تعداد برنده‌های اعلام‌شده. مرحلهٔ ۲۶ هنوز نتیجه ندارد.</p>
+  <div class="chartbox"><svg id="stageChart" role="img" aria-label="تعداد عرضه و فروش در هر مرحله"></svg></div>
+  <div class="pane"><table id="stageTable"><thead></thead><tbody></tbody></table></div>
+  <p class="small muted" style="margin-top:8px">صفحات ۶ و ۷ مرحلهٔ ۲ روی سرور سایت خطای ۵۰۰ می‌دهند. ۱۸ آگهی این مرحله (شناسهٔ ۹۶۴۱ تا ۹۶۵۸) قابل دریافت نبود.</p>
+</section>
+
+<section id="trends">
+  <h2>روند قیمت پایه، محله به محله</h2>
+  <p class="intro">میانهٔ قیمت پایهٔ هر متر زمین در هر مرحله (میلیون تومان). محور عمودی هر نمودار مقیاس خودش را دارد. بخشی از جهش‌ها به این دلیل است که در هر مرحله قطعه‌های متفاوتی عرضه می‌شوند. معیار تمیزتر ستون «تغییر قیمت قطعهٔ تازه» در جدول محله‌هاست.</p>
+  <div class="multiples" id="multiples"></div>
+</section>
+
+<section id="locations">
+  <h2>کارنامهٔ محله‌ها</h2>
+  <p class="intro">سطح «قطعهٔ تازه» یعنی میانهٔ قیمت پایه‌ای که کارشناس آستان برای قطعه‌های تازه‌وارد گذاشته است، در یک‌سوم اول فصل (مرحلهٔ ۱ تا ۹) و یک‌سوم آخر (مرحلهٔ ۱۸ تا ۲۶). نرخ فروش یعنی سهم قطعه‌هایی که برنده گرفته‌اند.</p>
+  <div class="pane"><table id="locTable"><thead></thead><tbody></tbody></table></div>
+</section>
+
+<section id="gone">
+  <h2>قطعه‌های ارزنده‌ای که دیگر در مزایده نیستند</h2>
+  <p class="intro">«سطح امروز» میانهٔ قیمت پایهٔ همان محل در آخرین مراحل است. «سود کاغذی» یعنی فاصلهٔ آن با قیمتی که برنده پرداخت یا آخرین قیمت عرضه. «سقف منطقی» بیشترین قیمت هر متر است که با قیمت‌های امروز در مشارکت ۶۰/۴۰ بازده ۱۵٪ به صاحب زمین می‌دهد.</p>
+  <div class="pane"><table id="goneTable"><thead></thead><tbody></tbody></table></div>
+  <h3>قطعه‌هایی که بین مراحل تغییر قیمت داده‌اند</h3>
+  <p class="small muted">قطعه‌هایی که چند بار عرضه شده‌اند و آستان قیمت پایه‌شان را تغییر داده است، از بیشترین کاهش تا بیشترین افزایش.</p>
+  <div class="pane" style="max-height:420px"><table id="repTable"><thead></thead><tbody></tbody></table></div>
+</section>
+
+<section id="suburbs">
+  <h2>حومهٔ مشهد: طرقبه، محور شاندیز، رضویه و روستاها</h2>
+  <!--__SUBURBS__-->
+  <div class="pane"><table id="subTable"><thead></thead><tbody></tbody></table></div>
+</section>
+
+<section id="explorer">
+  <h2>همهٔ قطعه‌ها</h2>
+  <p class="intro">هر قطعهٔ مسکونی (و قطعه‌های باغی، مختلط و تفریحی حومه) که در ۲۶ مرحله عرضه شده است. یک قطعه ممکن است چند بار عرضه شده باشد.</p>
+  <div class="filters">
+    <input id="q" type="search" placeholder="جست‌وجو: محل، قطعه، کاربری…" aria-label="جست‌وجو">
+    <select id="fStatus" aria-label="وضعیت"><option value="">همهٔ وضعیت‌ها</option><option value="active">در مزایدهٔ فعلی</option><option value="sold">فروخته شد</option><option value="withdrawn">خارج شد بدون برنده</option><option value="sold_relisted_gone">برنده داشت، دوباره عرضه شد</option></select>
+    <select id="fLoc" aria-label="محل"></select>
+    <span class="small muted" id="count"></span>
+  </div>
+  <div class="pane" style="max-height:640px"><table id="allTable"><thead></thead><tbody></tbody></table></div>
+  <div class="btnrow"><button class="btn" id="more">نمایش بیشتر</button></div>
+</section>
+
+<section id="method">
+  <h2>روش، فرض‌ها و منابع</h2>
+  <!--__METHOD__-->
+</section>
+<footer>تهیه‌شده بر پایهٔ دادهٔ عمومی سامانهٔ amlak.razavi.ir در ۱۶ مهر ۱۴۰۵. این گزارش جایگزین کارشناسی رسمی دادگستری، استعلام شهرداری و بازدید میدانی نیست.</footer>
+</div>
+
+<script id="data" type="application/json">/*__DATA__*/{}</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById('data').textContent);
+const faNum = new Intl.NumberFormat('fa-IR');
+const fa = (n, d=0) => (n==null||isNaN(n)) ? '—' : new Intl.NumberFormat('fa-IR',{maximumFractionDigits:d,minimumFractionDigits:d}).format(n);
+const M = n => n==null ? '—' : fa(n/1e6, n/1e6 < 10 ? 1 : 0);          // million toman
+const B = n => n==null ? '—' : fa(n/1e9, n/1e9 < 100 ? 1 : 0);          // billion toman
+const P = (x, sign=true) => x==null ? '—' : (sign && x>0 ? '+' : '') + fa(x*100, 0) + '٪';
+const cls = x => x==null ? '' : (x>0 ? 'pos' : (x<0 ? 'neg' : ''));
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const STATUS = {active:['در مزایدهٔ فعلی','good'], sold:['فروخته شد','neu'], withdrawn:['خارج شد بدون برنده','warn'], sold_relisted_gone:['برنده داشت، دوباره عرضه شد','warn']};
+const KIND = {land:'زمین', apartment:'آپارتمان', pack:'پک چندقطعه', large_parcel:'قطعهٔ بزرگ', garden:'باغ', mixed:'مختلط', tourism:'تفریحی‌توریستی'};
+
+// ---------- KPIs ----------
+const T = D.totals;
+const active = D.active.length;
+const kp = [
+  [fa(26), 'مرحلهٔ هفتگی مزایده'],
+  [fa(T.listings), 'آگهی استخراج‌شده (همهٔ کاربری‌ها)'],
+  [fa(T.assets), 'قطعهٔ یکتای مسکونی و حومه'],
+  [fa(active), 'قطعهٔ در حال عرضه (مرحلهٔ ۲۶)'],
+  [fa(T.winners), 'برندهٔ اعلام‌شده'],
+  [P(T.premium_median,false), 'میانهٔ اضافه‌پرداخت برنده'],
+];
+document.getElementById('kpis').innerHTML = kp.map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join('');
+
+// ---------- ranking ----------
+function verdictPill(v, r){
+  if(!v){ return r.scope==='city' ? '' : '<span class="pill neu">حومه: فقط نگهداری زمین</span>'; }
+  if(v.startsWith('مناسب')) return `<span class="pill good">${esc(v)}</span>`;
+  if(v.startsWith('مشارکت شدنی')) return `<span class="pill warn">${esc(v)}</span>`;
+  if(v.startsWith('ساخت توجیه ندارد')) return `<span class="pill warn">${esc(v)}</span>`;
+  return `<span class="pill bad">${esc(v)}</span>`;
+}
+const rankCols = [
+  ['score','امتیاز', r => r.score==null?'—':`${fa(r.score,0)}<span class="scorebar"><i style="width:${Math.max(0,Math.min(100,r.score))}%"></i></span>`],
+  ['name','محل', r => esc(r.name)],
+  ['qate','قطعه', r => esc(r.qate)],
+  ['area','مساحت (م²)', r => fa(r.area,0)],
+  ['rate_last','قیمت پایه هر متر (م.ت)', r => M(r.rate_last)],
+  ['total_last','کل حق تقدیمی (میلیارد)', r => B(r.total_last)],
+  ['floors','طبقات / تراکم', r => r.floors==null?'—':`${fa(r.floors)} طبقه / ${fa((r.far||0)*100,0)}٪`],
+  ['net_m2','زیربنای فروش (م²)', r => fa(r.net_m2,0)],
+  ['units','واحد', r => fa(r.units,0)],
+  ['p_new','نوساز منطقه (م.ت)', r => M(r.p_new)],
+  ['owner_m2','سهم ۴۰٪ مالک (م²)', r => fa(r.owner_m2,0)],
+  ['owner_value','ارزش سهم مالک (میلیارد)', r => B(r.owner_value)],
+  ['owner_real_ret_eff','بازده واقعی مالک', r => `<span class="${cls(r.owner_real_ret_eff)}">${P(r.owner_real_ret_eff)}</span>`],
+  ['builder_margin','سود سازنده در ۶۰٪', r => `<span class="${cls(r.builder_margin)}">${P(r.builder_margin)}</span>`],
+  ['max_bid_partner','سقف پیشنهاد هر متر', r => r.max_bid_partner ? M(r.max_bid_partner) : '<span class="neg">نخرید</span>'],
+  ['vs_land_mkt','نسبت به بازار زمین', r => `<span class="${cls(-(r.vs_land_mkt||0))}">${P(r.vs_land_mkt)}</span>`],
+  ['verdict','حکم', r => verdictPill(r.verdict, r)],
+];
+let rankScope = 'city', rankSort = ['score', -1];
+function renderRank(){
+  const t = document.getElementById('rankTable');
+  t.tHead.innerHTML = '<tr>' + rankCols.map(c=>`<th class="sort" data-k="${c[0]}">${c[1]}</th>`).join('') + '</tr>';
+  let rows = D.active.filter(r => rankScope==='all' || (rankScope==='city' ? r.scope==='city' : r.scope!=='city'));
+  const [k,dir] = rankSort;
+  rows.sort((a,b)=>{const x=a[k],y=b[k]; if(x==null&&y==null) return 0; if(x==null) return 1; if(y==null) return -1; return (typeof x==='string'? x.localeCompare(y,'fa') : x-y)*dir;});
+  t.tBodies[0].innerHTML = rows.map(r => `<tr class="lot" data-id="${r.asset}" tabindex="0">${rankCols.map(c=>`<td>${c[2](r)}</td>`).join('')}</tr>`).join('');
+  t.tHead.querySelectorAll('th').forEach(th => th.onclick = () => { const k=th.dataset.k; rankSort = [k, rankSort[0]===k ? -rankSort[1] : -1]; renderRank(); });
+  t.tBodies[0].querySelectorAll('tr.lot').forEach(tr => { tr.onclick = () => toggleDetail(tr); tr.onkeydown = e => { if(e.key==='Enter') toggleDetail(tr); }; });
+}
+function toggleDetail(tr){
+  const panel = document.getElementById('lotDetail');
+  const was = tr.classList.contains('sel');
+  document.querySelectorAll('#rankTable tr.sel').forEach(x=>x.classList.remove('sel'));
+  if(was){ panel.hidden = true; return; }
+  tr.classList.add('sel');
+  const r = D.active.find(x => x.asset == tr.dataset.id);
+  const hist = (r.history||[]).map(h=>`مرحلهٔ ${fa(h.step)}: ${M(h.rate)}${h.win?` ← برنده ${M(h.win)}`:''}`).join(' · ');
+  const build = r.net_m2 ? `
+    <div><h4>برنامهٔ ساخت</h4><div class="kv">
+      <span>سطح اشغال</span><span>${fa(60)}٪ — ${fa(r.footprint_m2)} م² همکف</span>
+      <span>طبقات روی پیلوت</span><span>${fa(r.floors)} (تراکم ${fa((r.far||0)*100,0)}٪)</span>
+      <span>زیربنای ناخالص مسکونی</span><span>${fa(r.gross_m2)} م²</span>
+      <span>زیربنای قابل فروش (۸۵٪)</span><span>${fa(r.net_m2)} م²</span>
+      <span>تعداد واحد</span><span>${fa(r.units)} واحد حدود ${fa(r.unit_size)} متری</span>
+      <span>پارکینگ</span><span>${r.basement_m2>0?`زیرزمین حدود ${fa(r.basement_m2)} م²`:'در پیلوت تأمین می‌شود'}</span>
+      <span>با یک طبقهٔ مازاد</span><span>${fa(r.x_floors)} طبقه (با پرداخت عوارض طبقهٔ مازاد)؛ سود توسعه ${P(r.x_margin)}، بازده مالک در ۶۰/۴۰ ${P(r.x_owner_real_ret_eff)}</span>
+    </div></div>
+    <div><h4>ارزش و هزینه (کل پروژه)</h4><div class="kv">
+      <span>قیمت نوساز منطقه</span><span>${M(r.p_new)} م.ت <span class="muted small">(${esc(r.p_src)})</span></span>
+      <span>قیمت فروش در مدل</span><span>${M(r.sale_ppm)} م.ت در متر (پس از کسر ۱۰٪)</span>
+      <span>ارزش کل واحدها</span><span>${B(r.gdv)} میلیارد</span>
+      <span>هزینهٔ ساخت + عوارض + مهندسی</span><span>${B(r.build_cost)} میلیارد (${M(r.build_cost_per_net)} م.ت هر متر فروش)</span>
+      <span>زمین با اضافه‌پرداخت مورد انتظار ${P(r.exp_premium,false)}</span><span>${B(r.land_cost)} میلیارد</span>
+      <span>سود توسعهٔ مستقل</span><span class="${cls(r.margin)}">${P(r.margin)} (بدبینانه ${P(r.margin_stress)}، خوش‌بینانه ${P(r.margin_upside)})</span>
+    </div></div>
+    <div><h4>مشارکت ۶۰/۴۰</h4><div class="kv">
+      <span>سهم مالک (۴۰٪)</span><span>${fa(r.owner_m2)} م² ≈ ${fa(r.owner_m2/(r.unit_size||100),1)} واحد، ارزش ${B(r.owner_value)} میلیارد</span>
+      <span>هزینهٔ هر متر سهم مالک</span><span>${M(r.owner_cost_per_m2)} م.ت (در برابر فروش ${M(r.sale_ppm)})</span>
+      <span>سود سازنده با ۶۰٪</span><span class="${cls(r.builder_margin)}">${P(r.builder_margin)} ${r.builder_margin>=0.25?'— سازنده قبول می‌کند':'— کمتر از ۲۵٪ هدف سازنده'}</span>
+      <span>سهم منصفانهٔ مالک</span><span>${P(r.owner_fair_share,false)} (سهمی که سود سازنده را دقیقاً ۲۵٪ نگه می‌دارد)</span>
+      <span>بازده واقعی مالک</span><span class="${cls(r.owner_real_ret_eff)}">${P(r.owner_real_ret_eff)} در حدود ۳۳ ماه (بدبینانه ${P(r.pes_owner_real_ret_eff)}، خوش‌بینانه ${P(r.opt_owner_real_ret_eff)})</span>
+      <span>سقف پیشنهاد هر متر</span><span>${r.max_bid_partner?M(r.max_bid_partner)+' م.ت':'—'} (بدبینانه ${M(r.pes_max_bid_partner)}، خوش‌بینانه ${M(r.opt_max_bid_partner)})</span>
+    </div></div>` : `<div><h4>ارزش‌گذاری</h4><p class="small">برای این کاربری مدل ساخت اجرا نشد. مقایسه با بازار باغ: ${r.garden_mkt?M(r.garden_mkt)+' م.ت در متر؛ قیمت پایه '+P(r.vs_garden_mkt)+' نسبت به آن':'—'}.</p></div>`;
+  panel.innerHTML = `<div class="head"><h3>${esc(r.name)} — قطعهٔ ${esc(r.qate)}${r.block?' بلوک '+esc(r.block):''} · ${fa(r.area,0)} متر</h3>${verdictPill(r.verdict, r)}</div><div class="dgrid">${build}
+    <div><h4>ویژگی‌های قطعه</h4><p class="small">${esc(r.plot_notes||'—')}</p>
+      <p class="small"><span class="muted">کاربری:</span> ${esc(r.karbari)} · <span class="muted">اولین عرضه:</span> مرحلهٔ ${fa(r.first_step)} · <span class="muted">تعداد عرضه:</span> ${fa(r.n_listings)}</p>
+      <p class="small"><span class="muted">تاریخچهٔ قیمت:</span> ${hist}</p>
+      <p class="small"><span class="muted">بازار زمین:</span> ${r.land_mkt?M(r.land_mkt)+' م.ت — '+esc(r.land_mkt_src):'نمونهٔ کافی نیست'}</p>
+      <div class="btnrow">${r.koroki?`<a class="btn" href="${esc(r.koroki)}" target="_blank" rel="noopener">کروکی</a>`:''}${r.notice?`<a class="btn" href="${esc(r.notice)}" target="_blank" rel="noopener">اطلاعیه</a>`:''}</div>
+    </div></div>`;
+  panel.hidden = false;
+  panel.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'nearest'});
+}
+document.querySelectorAll('[data-scope]').forEach(b => b.onclick = () => {
+  rankScope = b.dataset.scope; document.querySelectorAll('[data-scope]').forEach(x=>x.setAttribute('aria-pressed', x===b)); renderRank();
+});
+renderRank();
+
+// ---------- partnership explainer ----------
+const a = D.assump;
+document.getElementById('formulaBox').innerHTML = `
+  <p><b>۱. برنامهٔ فیزیکی.</b> سطح اشغال <code>${fa(a.occupancy*100)}٪</code>. تعداد طبقات روی پیلوت از کروکی و ضوابط مشهد گرفته شده است: تراکم کم ۳ طبقه، متوسط ۴ تا ۵ طبقه، زیاد ۶ طبقه، به‌علاوهٔ اثر عرض معبر و مساحت قطعه. در آبشار تراکم ۲۳۰٪ روی کروکی درج شده است. زیربنای قابل فروش <code>${fa(a.net_to_gross*100)}٪</code> زیربنای ناخالص است. برای هر واحد یک پارکینگ لازم است؛ اگر پیلوت کافی نباشد، زیرزمین حساب می‌شود.</p>
+  <p><b>۲. ارزش.</b> قیمت آپارتمان نوساز همان محله (آگهی‌های ساخت ۱۴۰۱ به بعد در دیوار) با کسر <code>${fa((1-a.haircut)*100)}٪</code>: نیمی برای فاصلهٔ قیمت آگهی تا معامله و نیمی برای اثر سند موقوفه.</p>
+  <p><b>۳. هزینه.</b> هزینهٔ سخت ساخت به ازای متر ناخالص بسته به سطح محله ۳۵ تا ۵۰ میلیون است (پیلوت ۶۰٪، زیرزمین ۱۲۵٪). علاوه بر آن: عوارض پروانه <code>${fa(a.permit*100,1)}٪</code> ارزش پروژه؛ مهندسی، بیمه و انشعابات <code>${fa(a.eng*100)}٪</code>؛ احتیاط <code>${fa(a.cont*100)}٪</code>؛ فروش <code>${fa(a.selling*100)}٪</code>.</p>
+  <p><b>۴. تقسیم ۶۰/۴۰.</b> صاحب زمین فقط پول زمین را می‌دهد و ۴۰٪ متراژ قابل فروش را می‌گیرد. سازنده همهٔ هزینهٔ ساخت، عوارض و مهندسی را می‌دهد و ۶۰٪ را می‌گیرد. اگر سود سازنده با ۶۰٪ کمتر از <code>${fa(a.builder_target*100)}٪</code> باشد، سازندهٔ واقعی سهم بیشتری می‌خواهد. در آن حالت «سهم منصفانهٔ مالک» جای ۴۰٪ را می‌گیرد.</p>
+  <p><b>۵. بازده و سقف پیشنهاد.</b> بازده مالک برابر است با ارزش سهم او تقسیم بر هزینهٔ مؤثر زمین. هزینهٔ مؤثر زمین را با ۴۰٪ نقد و دو چک شش‌ماهه و هزینهٔ سرمایهٔ <code>${fa(a.capital*100)}٪</code> در سال حساب کرده‌ایم، که معادل <code>${fa(a.pv,2)}</code> قیمت اسمی است. سقف پیشنهاد قیمتی است که بازده مالک را دقیقاً <code>${fa(a.owner_target*100)}٪</code> می‌کند. افق زمانی ${fa(a.months)} ماه ساخت و ۳ ماه یافتن سازنده است.</p>
+  <p class="small muted">همهٔ اعداد به قیمت ثابت مهر ۱۴۰۵ است، پس بازده‌ها «واقعی» یعنی بعد از تورم‌اند. زمینی که فقط نگه داشته شود معمولاً هم‌پای تورم رشد می‌کند و بازده واقعی‌اش نزدیک صفر است.</p>`;
+document.getElementById('installNote').innerHTML = `<b>اقساط یا نقد؟</b> اطلاعیه‌ها برای پرداخت کامل نقدی ۱۰٪ تخفیف می‌دهند. اقساط (۴۰٪ نقد و دو چک ۶ ماهه و ۱۲ ماهه، بدون سود) با هزینهٔ سرمایهٔ ${fa(a.capital*100)}٪ معادل ${fa((1-a.pv)*100,0)}٪ تخفیف است. نقطهٔ سربه‌سر حدود ۲۷٪ هزینهٔ سرمایه در سال است. پس اگر پولتان در جای دیگر بیش از ۲۷٪ در سال بازده دارد یا تورم بالاتر از این است، <b>اقساط به‌صرفه‌تر است</b>.`;
+
+// ---------- stages ----------
+const st = D.stages;
+(function stageChart(){
+  const svg = document.getElementById('stageChart'); const W=1100, H=230, pl=34, pr=10, pt=16, pb=34;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`); svg.setAttribute('width', W); svg.style.maxWidth='100%'; svg.style.height='auto';
+  const maxV = Math.max(...st.map(s=>s.residential)); const bw = (W-pl-pr)/st.length;
+  const y = v => pt + (H-pt-pb)*(1 - v/maxV);
+  let g = '';
+  for(let t=0;t<=maxV;t+=20){ g += `<line x1="${pl}" x2="${W-pr}" y1="${y(t)}" y2="${y(t)}" stroke="var(--line)" stroke-width="1"/><text x="${pl-6}" y="${y(t)+3}" text-anchor="end">${fa(t)}</text>`; }
+  st.forEach((s,i)=>{ const x = W - pr - (i+1)*bw;
+    g += `<rect x="${x+bw*0.18}" y="${y(s.residential)}" width="${bw*0.32}" height="${y(0)-y(s.residential)}" fill="var(--chart1)" opacity="0.85"><title>مرحلهٔ ${s.step}: ${s.residential} عرضه</title></rect>`;
+    g += `<rect x="${x+bw*0.52}" y="${y(s.sold)}" width="${bw*0.32}" height="${y(0)-y(s.sold)}" fill="var(--chart2)"><title>مرحلهٔ ${s.step}: ${s.sold} فروش</title></rect>`;
+    g += `<text x="${x+bw/2}" y="${H-pb+14}" text-anchor="middle">${fa(s.step)}</text>`; });
+  g += `<rect x="${W-pr-150}" y="2" width="10" height="10" fill="var(--chart1)"/><text x="${W-pr-136}" y="11">عرضهٔ مسکونی و حومه</text><rect x="${W-pr-260}" y="2" width="10" height="10" fill="var(--chart2)"/><text x="${W-pr-246}" y="11">فروش</text>`;
+  g += `<text x="${W/2}" y="${H-4}" text-anchor="middle">شمارهٔ مرحله (از راست به چپ)</text>`;
+  svg.innerHTML = g;
+})();
+(function(){
+  const t = document.getElementById('stageTable');
+  t.tHead.innerHTML = '<tr><th>مرحله</th><th>تاریخ</th><th>کل آگهی</th><th>مسکونی و حومه</th><th>قطعهٔ تازه</th><th>فروش</th><th>میانهٔ اضافه‌پرداخت</th><th>میانهٔ پایهٔ زمین شهری (م.ت)</th><th>خریدار حقوقی</th></tr>';
+  t.tBodies[0].innerHTML = st.map(s=>`<tr><td>${fa(s.step)}</td><td>${esc(s.date)}</td><td>${fa(s.listings)}</td><td>${fa(s.residential)}</td><td>${fa(s.new_assets)}</td><td>${fa(s.sold)}</td><td>${s.median_premium==null?'—':P(s.median_premium,false)}</td><td>${M(s.city_land_median_rate)}</td><td>${fa(s.buyers_company)}</td></tr>`).join('');
+})();
+
+// ---------- small multiples ----------
+(function(){
+  const box = document.getElementById('multiples');
+  box.innerHTML = D.series.map((s,idx)=>{
+    const pts = s.pts; const W=280,H=120,pl=30,pr=8,pt=10,pb=18;
+    const xs = pts.map(p=>p[0]), ys = pts.map(p=>p[1]/1e6);
+    const minY = Math.min(...ys)*0.92, maxY = Math.max(...ys)*1.05;
+    const X = v => W-pr - (v-1)/25*(W-pl-pr), Y = v => pt + (H-pt-pb)*(1-(v-minY)/(maxY-minY||1));
+    const d = pts.map((p,i)=>`${i?'L':'M'}${X(p[0]).toFixed(1)},${Y(p[1]/1e6).toFixed(1)}`).join('');
+    const area = d + `L${X(xs[xs.length-1]).toFixed(1)},${H-pb}L${X(xs[0]).toFixed(1)},${H-pb}Z`;
+    const first = ys[0], last = ys[ys.length-1], ch = last/first-1;
+    const ticks = [minY/0.92, maxY/1.05];
+    const grid = ticks.map(v=>`<line x1="${pl}" x2="${W-pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${pl-4}" y="${Y(v)+3}" text-anchor="end">${fa(v, v<10?1:0)}</text>`).join('');
+    const xt = [1,9,18,26].map(v=>`<text x="${X(v)}" y="${H-4}" text-anchor="middle">${fa(v)}</text>`).join('');
+    return `<div class="mchart"><h4>${esc(s.name)}</h4><div class="delta"><span class="${cls(ch)}">${P(ch)}</span> <span class="muted">از مرحلهٔ ${fa(xs[0])} (${fa(first, first<10?1:0)}) تا ${fa(xs[xs.length-1])} (${fa(last, last<10?1:0)})</span></div>
+      <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(s.name)}">${grid}<path d="${area}" fill="var(--chart1)" opacity="0.10"/><path d="${d}" fill="none" stroke="var(--chart1)" stroke-width="2"/>${pts.map(p=>`<circle cx="${X(p[0])}" cy="${Y(p[1]/1e6)}" r="2.2" fill="var(--chart1)"><title>مرحلهٔ ${p[0]}: ${fa(p[1]/1e6,1)} م.ت (${p[2]} آگهی)</title></circle>`).join('')}<circle cx="${X(xs[xs.length-1])}" cy="${Y(last)}" r="4" fill="var(--chart2)"/>${xt}</svg></div>`;
+  }).join('');
+})();
+
+// ---------- locations ----------
+(function(){
+  const t = document.getElementById('locTable');
+  const rows = D.locs.filter(l=>l.assets>=2).sort((a,b)=>b.assets-a.assets);
+  t.tHead.innerHTML = '<tr><th>محل</th><th>منطقه</th><th>نوع</th><th>قطعه</th><th>فروش</th><th>فعال</th><th>خارج‌شده</th><th>نرخ فروش</th><th>میانه / بیشینهٔ اضافه‌پرداخت</th><th>قطعهٔ تازه: اول فصل → آخر فصل (م.ت)</th><th>تغییر</th><th>آپارتمان نوساز (م.ت)</th><th>بازار زمین (م.ت)</th></tr>';
+  const SC = {city:'مشهد', edge:'حاشیه/روستا', town:'شهرک/شهر'};
+  t.tBodies[0].innerHTML = rows.map(l=>`<tr><td>${esc(l.name)}</td><td>${l.district==null?'—':esc(l.district)}</td><td>${SC[l.scope]||''}</td><td>${fa(l.assets)}</td><td>${fa(l.sold)}</td><td>${fa(l.active)}</td><td>${fa(l.withdrawn)}</td><td>${P(l.sell_through,false)}</td><td>${l.median_premium==null?'—':P(l.median_premium,false)+' / '+P(l.max_premium,false)}</td><td>${l.new_lot_early?M(l.new_lot_early):'—'} → ${l.new_lot_late?M(l.new_lot_late):'—'}</td><td class="${cls(l.new_lot_change)}">${P(l.new_lot_change)}</td><td>${M(l.p_new)}</td><td>${M(l.land_mkt||l.garden_mkt)}</td></tr>`).join('');
+})();
+
+// ---------- gone & repriced ----------
+(function(){
+  const t = document.getElementById('goneTable');
+  t.tHead.innerHTML = '<tr><th>محل</th><th>قطعه</th><th>مساحت</th><th>وضعیت</th><th>آخرین مرحله</th><th>قیمت پرداختی / آخرین عرضه (م.ت)</th><th>سطح امروز همان محل (م.ت)</th><th>سود کاغذی</th><th>سقف منطقی امروز (م.ت)</th></tr>';
+  t.tBodies[0].innerHTML = D.gone.map(g=>`<tr><td>${esc(g.name)}</td><td>${esc(g.qate)}</td><td>${fa(g.area,0)}</td><td><span class="pill ${STATUS[g.status][1]}">${STATUS[g.status][0]}</span></td><td>${fa(g.last_step)}</td><td>${M(g.paid_ref)}${g.win_premium!=null&&g.status==='sold'?` <span class="muted small">(${P(g.win_premium)})</span>`:''}</td><td>${M(g.loc_level_now)}</td><td class="${cls(g.paper_gain)}">${P(g.paper_gain)}</td><td>${M(g.max_bid_partner)}</td></tr>`).join('');
+  const r = document.getElementById('repTable');
+  r.tHead.innerHTML = '<tr><th>محل</th><th>قطعه</th><th>مساحت</th><th>وضعیت</th><th>عرضه</th><th>مراحل</th><th>قیمت اول → آخر (م.ت)</th><th>تغییر</th></tr>';
+  r.tBodies[0].innerHTML = D.repriced.map(g=>`<tr><td>${esc(g.name)}</td><td>${esc(g.qate)}</td><td>${fa(g.area,0)}</td><td><span class="pill ${STATUS[g.status][1]}">${STATUS[g.status][0]}</span></td><td>${fa(g.n_listings)} بار</td><td>${fa(g.first_step)}–${fa(g.last_step)}</td><td>${M(g.rate_first)} → ${M(g.rate_last)}</td><td class="${cls(g.rate_change)}">${P(g.rate_change)}</td></tr>`).join('');
+})();
+
+// ---------- suburbs ----------
+(function(){
+  const t = document.getElementById('subTable');
+  t.tHead.innerHTML = '<tr><th>محل</th><th>نوع</th><th>کاربری</th><th>قطعه</th><th>مساحت</th><th>وضعیت</th><th>مراحل</th><th>قیمت اول → آخر (م.ت)</th><th>برنده</th><th>کل (میلیارد)</th><th>نسبت به بازار</th></tr>';
+  t.tBodies[0].innerHTML = D.suburbs.map(s=>{
+    const vs = s.vs_garden_mkt!=null ? s.vs_garden_mkt : s.vs_land_mkt;
+    return `<tr><td>${esc(s.name)}</td><td>${KIND[s.kind]||s.kind}</td><td>${esc(s.karbari)}</td><td>${esc(s.qate)}</td><td>${fa(s.area,0)}</td><td><span class="pill ${STATUS[s.status][1]}">${STATUS[s.status][0]}</span></td><td>${fa(s.first_step)}–${fa(s.last_step)}</td><td>${M(s.rate_first)} → ${M(s.rate_last)}</td><td>${s.win_price?M(s.win_price)+' <span class="small muted">('+P(s.win_premium)+')</span>':'—'}</td><td>${B(s.total_last)}</td><td class="${cls(-(vs||0))}">${vs==null?'—':P(vs)}</td></tr>`;}).join('');
+})();
+
+// ---------- explorer ----------
+(function(){
+  const sel = document.getElementById('fLoc');
+  const used = [...new Set(D.all.map(r=>r[1]))].sort((a,b)=>D.names[a].localeCompare(D.names[b],'fa'));
+  sel.innerHTML = '<option value="">همهٔ محل‌ها</option>' + used.map(i=>`<option value="${i}">${esc(D.names[i])}</option>`).join('');
+  const t = document.getElementById('allTable');
+  t.tHead.innerHTML = '<tr><th>محل</th><th>قطعه / بلوک</th><th>نوع</th><th>کاربری</th><th>مساحت</th><th>وضعیت</th><th>مراحل</th><th>دفعات عرضه</th><th>قیمت اول → آخر (م.ت)</th><th>برنده (م.ت)</th><th>اضافه‌پرداخت</th></tr>';
+  let limit = 120;
+  function render(){
+    const q = document.getElementById('q').value.trim(), s = document.getElementById('fStatus').value, l = sel.value;
+    let rows = D.all.filter(r => (!s || r[4]===s) && (l==='' || String(r[1])===l) &&
+      (!q || (D.names[r[1]]+' '+r[2]+' '+r[14]).includes(q)));
+    rows.sort((a,b)=> b[6]-a[6] || a[1]-b[1]);
+    document.getElementById('count').textContent = fa(rows.length) + ' قطعه';
+    t.tBodies[0].innerHTML = rows.slice(0,limit).map(r=>`<tr><td>${esc(D.names[r[1]])}</td><td>${esc(r[2])}${r[15]?' / '+esc(r[15]):''}</td><td>${KIND[r[12]]||r[12]}</td><td>${esc(r[14])}</td><td>${fa(r[3],0)}</td><td><span class="pill ${STATUS[r[4]][1]}">${STATUS[r[4]][0]}</span></td><td>${fa(r[5])}–${fa(r[6])}</td><td>${fa(r[7])}</td><td>${M(r[8])} → ${M(r[9])}</td><td>${M(r[10])}</td><td class="${cls(r[11])}">${r[11]==null?'—':P(r[11])}</td></tr>`).join('');
+    document.getElementById('more').hidden = rows.length <= limit;
+  }
+  ['q','fStatus','fLoc'].forEach(id=>document.getElementById(id).addEventListener('input', ()=>{limit=120; render();}));
+  document.getElementById('more').onclick = ()=>{ limit += 200; render(); };
+  render();
+})();
+})();
+</script>
