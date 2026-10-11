@@ -1,7 +1,8 @@
 """Build the public, password-protected copy of the dashboard for GitHub Pages (docs/).
 
   .venv/bin/python -I scripts/build_site.py            # app/ -> docs/ (data encrypted)
-  .venv/bin/python -I scripts/build_site.py --new-password
+  .venv/bin/python -I scripts/build_site.py --new-password   # random password + new salt
+  .venv/bin/python -I scripts/build_site.py --new-salt       # after writing a chosen password into .secrets/site_password.txt
 
 The page code, fonts, map library and sketch thumbnails are published as they are. app/data.json (all lots,
 valuations and bid caps) is gzip-compressed and encrypted with AES-256-GCM; the key is derived from the site
@@ -39,6 +40,12 @@ def new_password():
     print('new site password written to', PW_FILE)
 
 
+def new_salt():
+    with open(SALT_FILE, 'w') as f:
+        f.write(base64.b64encode(secrets.token_bytes(16)).decode() + '\n')
+    print('new salt: every device has to enter the password again')
+
+
 def b64(b):
     return base64.b64encode(b).decode()
 
@@ -46,6 +53,8 @@ def b64(b):
 def main():
     if '--new-password' in sys.argv or not os.path.exists(PW_FILE):
         new_password()
+    elif '--new-salt' in sys.argv:
+        new_salt()
     pw = open(PW_FILE).read().strip()
     salt = base64.b64decode(open(SALT_FILE).read().strip())
     key = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=ITER).derive(pw.encode())
