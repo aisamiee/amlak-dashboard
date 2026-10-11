@@ -38,7 +38,15 @@ Then run `scripts/update.sh build` (no scraping) and re-read the review output.
 `.venv/bin/python -I scripts/serve.py 8765` (the preview_start launcher hangs on macOS folder permission; use Bash).
 Open pages already show a banner «داده‌های تازهٔ مزایده آماده است». The user opens it with `start.command`.
 
-## 4. Report (Persian, short)
+## 4. Publish the online copy
+Run `scripts/publish.sh` (it encrypts `app/data.json` into `docs/data.enc` with the password in
+`.secrets/site_password.txt`, commits and pushes to github.com/aisamiee/amlak-dashboard; GitHub Pages serves
+`docs/` at https://aisamiee.github.io/amlak-dashboard/ about a minute later). Never commit `data/`, `output/`,
+`app/data.json`, `app/state/`, `.secrets/` or `HANDOFF.md` (all git-ignored: they hold bid caps, notes and the
+password). Never print the site password in chat; point the user to `.secrets/site_password.txt`. To change it:
+`.venv/bin/python -I scripts/build_site.py --new-password`, then publish (every device must log in again).
+
+## 5. Report (Persian, short)
 - Stage number and date, how many new lots, repriced lots, winners of the previous stage and their premium.
 - Top active lots with cap price (سقف پیشنهاد), owner real return and builder margin; any verdict changes.
 - Watchlist: read `app/state/user.json` (keys are asset keys = lowest listing id); report price/status changes
